@@ -1,0 +1,26 @@
+<script>
+let balance=10000;
+function login(){
+if(pin.value=="1234")
+menu.innerHTML=`<p>ATM Menu</p>
+<button onclick="check()">Balance</button>
+<button onclick="withdraw()">Withdraw</button>
+<button onclick="deposit()">Deposit</button>
+<p id="result"></p>`;
+else alert("Wrong PIN");
+}
+function check(){
+result.innerHTML="Balance: ₹"+balance;
+}
+function withdraw(){
+let n=+prompt("Amount:");
+if(n<=balance) balance-=n;
+else alert("Insufficient Balance");
+check();
+}
+function deposit(){
+let n=+prompt("Amount:");
+balance+=n;
+check();
+}
+</script>
