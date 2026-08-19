@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ATM System</title>
+</head>
+<body>
+<h2>ATM System</h2>
+<input id="pin" placeholder="Enter PIN">
+<button onclick="login()">Login</button>
+<div id="menu"></div>
+<script>
+let balance = 10000;
+function login() {
+    if (pin.value == "1234") {
+        menu.innerHTML = `
+        <h3>ATM Menu</h3>
+        <button onclick="check()">Balance</button>
+        <button onclick="withdraw()">Withdraw</button>
+        <button onclick="deposit()">Deposit</button>
+        <p id="result"></p>`;
+    } else alert("Wrong PIN");
+}
+function check() {
+    result.innerHTML = "Balance: ₹" + balance;
+}
+function withdraw() {
+    let n = +prompt("Enter amount");
+    if (n <= balance) balance -= n;
+    check();
+}
+function deposit() {
+    balance += +prompt("Enter amount");
+    check();
+}
+</script>
+</body>
+</html>
